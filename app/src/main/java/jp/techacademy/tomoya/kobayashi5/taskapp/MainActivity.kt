@@ -7,9 +7,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import io.realm.RealmChangeListener
 import io.realm.Sort
 import android.content.Intent
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 
-const val EXTRA_TASK = "jp.techacademy.taro.kirameki.taskapp.TASK"
+const val EXTRA_TASK = "jp.techacademy.tomoya.kobayashi.taskapp.TASK"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mRealm: Realm
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         // Realmの設定
         mRealm = Realm.getDefaultInstance()
         mRealm.addChangeListener(mRealmListener)
+
 
         // ListViewの設定
         mTaskAdapter = TaskAdapter(this)
@@ -91,6 +93,10 @@ class MainActivity : AppCompatActivity() {
         // 表示を更新するために、アダプターにデータが変更されたことを知らせる
         mTaskAdapter.notifyDataSetChanged()
     }
+
+
+
+
 
     override fun onDestroy() {
         super.onDestroy()
